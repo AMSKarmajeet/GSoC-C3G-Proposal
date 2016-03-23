@@ -1,94 +1,82 @@
-# Guideline for student application 
-## General guidelines
-
-* Applications that do not contain at least the minimum information in the template **will not** get a slot.
-
-* The best applications run to several pages (10+) if printed, and show considerable thought and planning.  The application process is longer this year than it has been in some prior years, so this should not be a problem.
-
-* Be sure to follow the general guidelines available in the [GSoC student guide](http://write.flossmanuals.net/gsocstudentguide/writing-a-proposal/).
-
-* If you have questions about details, contact your mentors first.  If you still have choices to make or different possible approaches, explore the most likely ones in your application. The goal of your application is to demonstrate your capability to complete the work of the project over the course of the summer, demonstrate that you've given a fair amount of thought to an implementation approach, and plan, as much as possible, for choices that may change the goals or timeline in the application.
-
-* Once your draft application has been submitted, you may receive comments from other C3G mentors, either listed project mentors or others.  Please respond to the comments promptly and completely.  Being non-responsive before you've even been awarded a slot is not a good sign for the success of your proposal.
-
-* Originality is always welcomed. If you have improvement ideas that go beyong the proposed project scope, by all means include them in your proposal.
-
-### Format
-The proposal should be submitted as a Markdown document, that you will make available from your public source control repository.
-
-It should include the following sections, in this particular order:
-
-* Project Info
-* Biographical Information
-* Contact Information
-* Student Affiliation
-* Schedule Conflicts
-* Mentors
-* Synopsis
-* Benefits to Community
-* Coding Plan & Methods
-* Timeline
-* Management of Coding Project
-* Test
-
+-> # Google Summer of Code <- 
+-> ## Canadian Centre for Computational Genomics <-
 
 ## Project Info
 
-Project title: 
+Project title: Improved Tools for Genetic Diversity Modelling
 
-Project short title (30 characters): 
+Project short title (30 characters): Genetic Modelling Optimization
 
-URL of project idea page: 
+URL of project idea page: ?? https://bitbucket.org/mugqic/gsoc2016/overview
 
 ## Biographical Information
 
-Provide a brief (text) biography, and why you think your background qualifies you for this project.
+INSERT (BRIEF) BIOGRAPHY HERE
+
+HIT ON BIOLOGY/GENETIC PAST
+
+MOVE ON TO COMPUTER SCIENCE/MATH AND WHY I'M INTERESTED
 
 ## Contact Information
 
-Student name: 
+Student name: Will Long
 
-Melange Link_id:  
+Melange Link_id: ??
 
-Student postal address: 
+Student postal address:
 
-Telephone(s): 
+*College Address (Until May 7)*
+302 Gilbert-Addoms
+1368 Campus Drive
+Box 94878
+Durham, NC 27708-4878
 
-Email(s): 
+*Home Address (After May 7)*
+1833 Nigel Court
+Vienna, VA 22182
 
-Other communications channels: Skype/Google+, etc. : 
+Telephone: (703) 965-1255 
+
+Email: wlong799@gmail.com
+
+Other communications channels: Skype (wlong799@gmail.com)
 
 
 ## Student Affiliation
 
-Institution: 
+Institution: Duke University
 
-Program: 
+Program: Computer Science
 
-Stage of completion: 
+Stage of completion: One Year
 
-Contact to verify: 
+Contact to verify: I can have an official transcript emailed to you upon request.
 
 
 ## Schedule Conflicts
 
-Please list any schedule conflict that will interfere with you treating your proposed C3G GCoC project as a full time job in the summer.  If you are applying to other internships, or have other commitments, list them.
+
 
 ## Mentors
 
-Mentor names: 
+Mentor names: Dr. Simon Gravel
 
-Mentor emails: 
+Mentor emails: gravellab@gmail.com
 
-Mentor link_ids: 
+Mentor link_ids: ??
 
 Have you been in touch with the mentors? When and how? 
+
+Dr. Gravel and I emailed back and forth a few times when I first expressed interest in the project. We had a discussion over video chat about the different projects he was considering working on, 
 
 
 ## Synopsis (max 150 words)
 
-Start your proposal with a short summary of the project, designed to convince the reviewer to read the rest of the proposal.
- 
+The interpretation of genomic data largely relies on simulation software. One important family of software simulates population-level diversity over the course of evolution as a function of selection and demography. The ∂a∂i open source package, developed by Ryan Gutenkunst [http://gutengroup.mcb.arizona.edu] is the leading software in the field, but it suffers from limitations when handling large datasets.
+
+This project aims to overhaul the computational engine of the ∂a∂i software by implementing a recently developed approach for the solution of partial differential equations.  This project will use ∂a∂i's interface and code-base but introduce a new spectrum simulation engine. Using a moment-based approach will provide improved performance and reduced numerical uncertainty compared to ∂a∂i, offering the genetics community with a general-purpose simulation tool that can address larger and more complex datasets than previously possible. 
+
+A prototype version of the computational engine is already running. The goal of this project will be to optimize the engine and embed it efficiently in the existing code-base. 
 
 ##  Benefits to Community (max 250 words)
 
