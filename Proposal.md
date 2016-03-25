@@ -19,9 +19,9 @@ I am an undergraduate at Duke University majoring in computer science and biolog
 
 In high-school, I participated in the USA Biology Olympiad, a competition that involves over 10,000 students across the country. After multiple rounds involving difficult theoretical questions and practical examinations, I placed first in the nation. I then advanced to the international competition in Bali with 240 students from 60 countries, and earned another gold medal. I also placed first internationally in the smaller University of Toronto Biology Exam. Additionally, I worked in a molecular genetics lab at the NIH one summer, where I studied the genetic basis to the development of the vertebrate vascular system, which involved performing DNA sequence analysis.
 
-In computer science, most of my experience is academic. However, I performed an independent research study in biostatistics last semester, where I analyzed causes of depression, and its effects on performance in American adults. This involved using R to analyze a massive CDC dataset of health evaluations. I used a unique analytic approach, using a structural equation model to set up relationships between different variables, and determine their correlations.
+In computer science, most of my experience is academic. However, I performed an independent research study in biostatistics last semester, where I analyzed causes of depression, and its effects on performance in American adults. This involved using R to analyze a massive CDC dataset of health evaluations. I used a unique analytic approach, creating a structural equation model to set up relationships between different variables, and determine their correlations.
 
-I believe I could be a great asset to this project, and hope to have the chance to contribute to it as I will not only gain experience in a subject I'm passionate about, but will also provide software that will really help the genetics community.
+I believe I could be a great asset to this project, and hope to have the chance to contribute to it, as I will not only gain experience in a subject I'm passionate about, but will also provide software that can truly help the genetics community.
 
 
 ### Contact Information
@@ -39,7 +39,7 @@ Durham, NC 27708-4878
 1833 Nigel Court  
 Vienna, VA 22182
 
-**Phone:** (703) 965-1255 
+**Cell Phone:** (703) 965-1255 
 
 **Email:** wlong799@gmail.com
 
@@ -56,16 +56,16 @@ dianeslong@yahoo.com
 
 **Institution:** Duke University
 
-**Program:** Double major in biology and computer science
+**Program:** Double majoring in biology and computer science
 
 **Stage of Completion:** 1 Year
 
-**Verification Contact:** I can have an official transcript emailed to you upon request.
+**Verification Contact:** Official transcript can be mailed/emailed upon request
 
 
 ### Schedule Conflicts
 
-None.
+None
 
 
 ### Mentors
@@ -74,7 +74,7 @@ None.
 
 **Mentor Email:** gravellab@gmail.com
 
-After I finished my selection test, I emailed Dr. Gravel to introduce myself, and quickly explain my background and interest in the project. We then had a discussion over video chat, where he explained the possible projects for this summer, and asked me more about what I might be interested in and able to do. He followed up in an email earlier this week with the project he thought was best suited for me. We discussed the project some more, to make sure I understood the details and what was expected.
+After finishing my selection test, I emailed Dr. Gravel to introduce myself, and quickly explain my background and interest in the project. We then had a discussion over video chat, where he explained the possible projects for this summer, and asked me more about what I might be interested in and able to do. He followed up in an email earlier this week with the project he thought was best suited for me. We discussed the project some more, to make sure I understood the details and what was expected.
 
 
 ### Synopsis
@@ -88,9 +88,9 @@ A prototype version of the computational engine is already running. The goal of 
 
 ###  Benefits to Community
 
-The ∂a∂i open-source package has already provided great benefits to the genetics community, providing a flexible and relatively fast way to simulate population diversity over the course of evolution. Since its creation in 2009, it has become the leading software in its field, and has already been cited in nearly 300 published articles. These projects have included determining demographic histories, studying the origins of humans and their dispersal from Africa, identifying genes positively selected for by evolution, and gaining a better understanding of the origins of various genes. Together, these projects have provided the community with much knowledge about evolution and the relationships between different species and between different genes.
+The ∂a∂i open-source package has already greatly benefitted the genetics community, providing a flexible and relatively fast way to simulate population diversity over the course of evolution. Since its creation in 2009, it has become the leading software in its field, and has already been cited in nearly 300 published articles. These projects have included determining demographic histories, studying the origins of humans and their dispersal from Africa, identifying genes positively selected for by evolution, and more. Together, these projects have provided the community with much knowledge about evolution, the relationships between different species, and the distribution of fitness effects in genetic variants.
 
-While ∂a∂i has clearly provided great benefits already, there are still improvements to be made. Average runtimes for a two-population model is about ten minutes, and more critically, it cannot model more than three populations, whereas many contemporary datasets contain dozens. Implementation of the new model will not only speed up runtimes and increase accuracy, but will allow for proper analysis of datasets previously difficult to deal with. This will benefit basic biomedical research aiming to understand the distribution of neutral and deleterious alleles in the human genome. This may eventually help in identifying disease risk alleles. Finally, it will demonstrate the usefulness of the new PDE solution approach, which can be applied in a wide range of applications.
+While ∂a∂i has clearly provided great benefits already, there are still improvements to be made. Average runtimes for a two-population model is about ten minutes, and more critically, it cannot model more than three populations, whereas many contemporary datasets contain dozens. Implementation of the new model will not only speed up runtimes and increase accuracy, but will allow for proper analysis of datasets previously difficult to deal with. In addition to the benefits listed above, it will help basic biomedical research aiming to understand the distribution of neutral and deleterious alleles in the human genome. This may eventually help in identifying disease risk alleles, which will allow prioritization of medical research efforts. Finally, the project will demonstrate the usefulness of the new PDE solution approach, which can be applied in a wide range of applications.
 
 
 ### Coding Plan & Methods
@@ -101,12 +101,16 @@ There are four main parts to this project, listed below in mostly chronological 
  
 2. Refactor the Python engine and port to C++ as necessary to improve performance. Each simulation consists in the integration of a set of linear differential equations. This process can be made more efficient in a variety of ways.
   * For high-dimensional problems, generating the matrices necessary for the linear system can be computationally expensive. This step can be optimized by porting it to C++, or by keeping the matrices in memory for quick reuse in further simulations.  
-  * Resolving the set of differential equations is also very expensive. It consists in the resolution of a linear system (Ax = B). A is both sparse and banded, and with a few approximations, it can be written as a pentadiagonal matrix which is an especially useful form for numerical solutions. It may be possible to take advantage of this to code an efficient solver for resolution of pentadiagonal linear systems.
+  * Resolving the set of differential equations is also very expensive. It consists in the resolution of a linear system (Ax = B). Matrix A is both sparse and banded, and with a few approximations, it can be written as a pentadiagonal matrix which is an especially useful form for numerical solutions. It may be possible to take advantage of this form, to code an efficient solver for resolution of pentadiagonal linear systems.
   *Optimize other functions as deemed necessary by the profiling step taken before. This may involve porting to C++ or making the code more efficient.  
 
-3. Improve the optimization algorithm used to compare simulations to data. Once the partial differential equation is solved, it is possible to go from a set of model parameters to a an experimental prediction. The question lies in finding the parameters that best fit the data. Optimizing the code that does this can further improve the performance of the software.
+3. Improve the optimization algorithm used to compare simulations to data. Once the partial differential equation has been solved, it is possible to go from a set of model parameters to a an experimental prediction. An algorithm must be used to find the parameters that best fit the data. Optimizing the code that does this can further improve the performance of the software.
 
-4. Testing the code. This step will be performed throughout the summer to ensure code is working correctly. The ∂a∂i package already provides a number of tests that could be used to quickly check the new code. Furthermore, since we can generally find the solutions already, simply by using the ∂a∂i software that already exists, it will be possible to compare the results from our new version against the old one. It will also be important to track and compare the amount of time it takes the program to complete the calculations, to ensure that the improvements actually worked.
+4. Testing the code. This step will be performed throughout the summer to ensure code is working correctly. Two types of testing will be necessary throughout the summer: tests for accuracy (i.e. is the code working correctly), and tests for performance (i.e. is the code more efficient than the existing implementation). 
+  * In testing for accuracy, the ∂a∂i package already provides a number of tests that can be used. Furthermore, as we can already find solutions using the existing ∂a∂i software, it will be possible to compare the results from our new version against the old one. Thus, it is unlikely that new tests will need to be created for this purpose.
+  * In testing performance, it will be necessary to have a variety of standardized data sets that I can run simulations on throughout the summer. As I gradually optimize the new computational engine, I'll track the time it takes for the simulations to run. By comparing these times against the time taken by the original software, I'll be able to measure performance. 
+
+The main obstacle I'll face during this project is time. Optimizing certain parts of code may take longer than expected, leaving me running behind schedule. This shouldn't be a problem though, as I have a contingency plan (described in the Timeline section) that should allow me to stay on track despite any setbacks. Other than that, I don't expect too many issues, as ∂a∂i is fairly stable at this point, and embedding my code within ∂a∂i is basically a matter of switching my new files in for the old ones.
 
 
 ### Timeline
@@ -119,10 +123,10 @@ There are four main parts to this project, listed below in mostly chronological 
 
 **April 22 - May 22 (Community Bonding)**
 
-* Talk with my mentor and possibly Dr. Gutenkunst to further discuss expectations for the summer project.
+* Talk with my mentor and possibly Dr. Gutenkunst to further discuss expectations for the summer project. This is an area of active research, so it is critical that I'm aware of any developments and how they affect the project plan.
 * Look through the source code for the prototype of the computational engine. Begin to think more specifically about how I might optimize the engine. Make sure I understand how exactly the engine implements the mathematical algorithm, and what each function does.
 * Look at the source code for the original project to see how my new implementation will have to be structured in order to properly interface with the existing code-base.
-* Decide upon some sample data sets that I can use for the project, to have a consistent way to measure performance of the new computational engine and compare it to the previous software.
+* Decide upon some sample data sets, possibly the example data sets provided with the software, that I can use to have a consistent way to measure performance of the new computational engine and compare it to the previous software.
 
 **May 23 - June 5 (Coding Period Begins)**
 
@@ -133,7 +137,7 @@ There are four main parts to this project, listed below in mostly chronological 
 **June 6 - June 19**
 
 * Optimize the matrix generation algorithm. Provide an option for the user to store their generated matrices in memory, to save time when running subsequent analyses.
-* Optimize the algorithm for resolution of the linear system (Ax = B). Take advantage of approximating A to be a pentadiagonal matrix, as these matrices are especially convenient with numerical analyses such as ours.
+* Optimize the algorithm for resolution of the linear system (Ax = B). Take advantage of approximating A to be a pentadiagonal matrix, as these matrices are especially convenient with numerical analyses.
 
 **June 20 - June 27 (Midterm Evaluations)**
 
@@ -150,14 +154,14 @@ There are four main parts to this project, listed below in mostly chronological 
 **August 6 - August 14**
 
 * Work on the optimization algorithm for comparing our simulations with data. This involves finding a better way to determine the parameters that correctly fit the data.
-* Period will be used as buffer time if necessary, to finish up previous steps in case of issues. See the contingency plan below.
+* If necessary, this will be used as another period of buffer time, to finish up previous steps due to unforseen issues. See the contingency plan below.
 
 **August 15 - August 23 (Final Submission)**
 
-* Clean code and add documentation to make the code easier to understand. 
-* New documentation will be mostly unnecessary, as ∂a∂i is already well documented and nothing has changed from the user's side, since this project worked on internals. However, the documentation can be updated to reflect the new computational engine, how it works, and the advantages it provides. Furthermore, it is possible that additional options will be provided to the user after completion of this project (e.g. choice to store matrices in memory), which will need to be documented as well.
+* Clean code and add documentation to make it easier to understand. 
+* New documentation will be mostly unnecessary, as ∂a∂i is already well documented and nothing has changed from the user's side, as this project worked on internals. However, the documentation can be updated to reflect the new computational engine, how it works, and the advantages it provides (i.e. users can now analyze more complex datasets). Furthermore, it is possible that additional options will be provided to the user after completion of this project (e.g. choice to store matrices in memory), which will need to be documented as well.
 * Run final tests on the new engine. Also perform a final timing on the sample data sets, to find the overall performance enhancements since the beginning of the summer.
-* Final computational engine will be located in C3G's independent ∂a∂i package, and possibly the original one created by Ryan Gutenkunst as well (not determined yet). 
+* Final computational engine will be located in C3G's independent ∂a∂i package, and possibly be pushed to the original package created by Ryan Gutenkunst as well (not determined yet). 
 * Submit final code sample as determined by discussion with my mentor, Dr. Gravel.
 
 
@@ -178,7 +182,7 @@ I've provided some buffer time throughout the project to allow me to catch up in
 
 Code will be committed as each major step is completed (i.e. Python ported to C++, new matrix generation algorithm, new linear system resolution solver, rewrite of remaining minor functions, etc.). This will probably mean committing around once a week, but I will be in regular contact with my mentor to keep him updated on my progress and ensure that I am still on track. If I fall behind or run into an issue, I will also be sure to discuss this with my mentor to determine how I can solve the problem, and how I can get back on track.
 
-Testing will occur throughout the summer, as described in previous sections. Additionally, I will work to make sure that my code is clean and well documented as I create it, so that there is less work to do at the end of the summer. Updating the computational engine is an incremental process, so I will need to make sure to test everything regularly to detect problems as soon as they occur.
+Testing will occur throughout the summer, as described in previous sections. Additionally, I will work to make sure that my code is clean and well documented as I create it, so that there is less work to do at the end of the summer. Updating the computational engine is an incremental process, so I will test everything regularly to detect problems as soon as they occur.
 
 
 ### Test
